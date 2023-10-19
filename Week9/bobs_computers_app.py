@@ -25,6 +25,8 @@ def menu(computer):
 
         runningtotal += computer.ComputerCaseMenu()
 
+        runningtotal += computer.MotherboardTypeMenu()
+
         # Get computer quantity from object
         quantity = computer.quantity
         print(f" You ordered {quantity} computers, ='ing ${runningtotal}")
