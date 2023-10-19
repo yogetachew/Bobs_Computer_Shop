@@ -21,9 +21,13 @@ def menu(computer):
         # set quantity to object
         computer.quantity = (int(input(" How many computers: ")))
 
+        runningtotal = 0
+
+        runningtotal += computer.ComputerCaseMenu()
+
         # Get computer quantity from object
         quantity = computer.quantity
-        print(f" You ordered {quantity} computers")
+        print(f" You ordered {quantity} computers, ='ing ${runningtotal}")
 
 
 
