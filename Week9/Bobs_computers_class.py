@@ -6,6 +6,10 @@
 """
 
 class Computer:
+    # create init
+    def __init__(self):
+        pass
+    
     """Define getter with @property decorator"""
     @property
     def quantity(self):
