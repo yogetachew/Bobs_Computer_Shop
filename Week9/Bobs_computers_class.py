@@ -32,6 +32,21 @@ class Computer:
             "RTX 3080":900,
             "RTX 4090ti":2000
         }
+
+        self.storageoptions = {
+            "HDD 1TB": 50,
+            "HDD 2TB": 80,
+            "SSD 256GB": 70,
+            "SSD 512GB": 120,
+            "SSD 1TB": 220,
+        }
+
+        self.memoryoptions = {
+            "8GB": 50,
+            "16GB": 100,
+            "32GB": 200,
+            "64GB": 350,
+        }
     
     """Define getter with @property decorator"""
     @property
@@ -79,7 +94,23 @@ class Computer:
 
         return Menu(self.gpuOptions, inputprompt, errormessage)
 
+#StorageType(the user can choose what type of storage they want)
+    def storageType(self) -> int:
+        print("Here are the options for your storage: ")
 
+        inputprompt = "Enter the type of storage you want: "
+        errormessage = "That input is not a storagr type we have in stock! \nTry again: "
+
+        return Menu(self.storageoptions, inputprompt, errormessage)
+
+#memoryoption(the user can choose what type of memory they want)
+    def memoryoption(self) -> int:
+        print("Here are the options for your memory: ")
+
+        inputprompt = "Enter the type of memory you want: "
+        errormessage = "That input is not a memory type we have in stock! \nTry again: "
+
+        return Menu(self.memoryoptions, inputprompt, errormessage)
 
 def Menu(dictionary:dict, inputprompt:str, errormessage:str):
     """handles majority of menu making"""
@@ -107,5 +138,5 @@ def FormatMenu(input:dict) -> str:
         
 
 
-#MemoryAmmount
-#StorageType(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
+#
+#(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
