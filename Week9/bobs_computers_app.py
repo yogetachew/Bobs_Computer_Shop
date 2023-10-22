@@ -16,7 +16,8 @@ def main():
 
 # TODO: create menu function
 def menu(computer):
-    while True:
+    still_running = "y"
+    while still_running =="y":
         # Get number of computers from user
         # set quantity to object
         computer.quantity = (int(input(" How many computers: ")))
@@ -33,8 +34,11 @@ def menu(computer):
 
         # Get computer quantity from object
         quantity = computer.quantity
-        print(f" You ordered {quantity} computers, costing ${runningtotal}")
-        
+        print(f" You ordered {quantity} computers, costing ${runningtotal} each")
+
+        # input to ask if user wants program to keep running
+        still_running = input("Do you wish to run again? [Y/N]: ").lower
+
 
 
 
