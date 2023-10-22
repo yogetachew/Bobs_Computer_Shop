@@ -18,6 +18,20 @@ class Computer:
             "Regular":120,
             "Wifi":145
         }
+
+        self.cpuOptions = {
+            "4-Core":0,
+            "8-Core":0,
+            "16-Core":0
+        }
+
+        self.gpuOptions = {
+            "GTX 1650":0,
+            "GTX 1080":0,
+            "RTX 2070 SUPER":0,
+            "RTX 3080":0,
+            "RTX 4090ti":0
+        }
     
     """Define getter with @property decorator"""
     @property
@@ -46,6 +60,24 @@ class Computer:
         errormessage = "That input wasnt a Motherboard we have in stock! \ntry again:"
         
         return Menu(self.Motherboards, inputprompt, errormessage)
+    
+#CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
+    def cpuTypeMenu(self) -> int:
+        print("Here are the options for your CPU: ")
+
+        inputprompt = "Enter the name of the CPU you want: "
+        errormessage = "That input is not a cpu we have in stock! \nTry again: "
+
+        return Menu(self.cpuOptions, inputprompt, errormessage)
+
+#GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
+    def gpuTypeMenu(self) -> int:
+        print("Here are the options for your GPU: ")
+
+        inputprompt = "Enter the name of the GPU you want: "
+        errormessage = "That input is not a GPU we have in stock! \nTry again: "
+
+        return Menu(self.gpuOptions, inputprompt, errormessage)
 
 
 
@@ -74,7 +106,6 @@ def FormatMenu(input:dict) -> str:
     return menustr
         
 
-#CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
-#GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
+
 #MemoryAmmount
 #StorageType(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
