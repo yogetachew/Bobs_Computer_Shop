@@ -35,6 +35,7 @@ def menu(computer):
         # Get computer quantity from object
         quantity = computer.quantity
         print(f" You ordered {quantity} computers, costing ${runningtotal} each")
+        print(f" TOTAL COST: {quantity * runningtotal}")
 
         # input to ask if user wants program to keep running
         still_running = input("Do you wish to run again? [Y/N]: ").lower

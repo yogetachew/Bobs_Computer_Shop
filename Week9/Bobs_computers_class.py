@@ -20,17 +20,17 @@ class Computer:
         }
 
         self.cpuOptions = {
-            "4-Core":0,
-            "8-Core":0,
-            "16-Core":0
+            "4-Core":100,
+            "8-Core":200,
+            "16-Core":500
         }
 
         self.gpuOptions = {
-            "GTX 1650":0,
-            "GTX 1080":0,
-            "RTX 2070 SUPER":0,
-            "RTX 3080":0,
-            "RTX 4090ti":0
+            "GTX 1650":150,
+            "GTX 1080":250,
+            "RTX 2070 SUPER":500,
+            "RTX 3080":900,
+            "RTX 4090ti":2000
         }
     
     """Define getter with @property decorator"""
