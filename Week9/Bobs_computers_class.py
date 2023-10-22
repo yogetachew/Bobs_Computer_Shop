@@ -95,7 +95,7 @@ class Computer:
         return Menu(self.gpuOptions, inputprompt, errormessage)
 
 #StorageType(the user can choose what type of storage they want)
-    def storageType(self) -> int:
+    def storageTypeMenu(self) -> int:
         print("Here are the options for your storage: ")
 
         inputprompt = "Enter the type of storage you want: "
@@ -104,7 +104,7 @@ class Computer:
         return Menu(self.storageoptions, inputprompt, errormessage)
 
 #memoryoption(the user can choose what type of memory they want)
-    def memoryoption(self) -> int:
+    def memoryoptionMenu(self) -> int:
         print("Here are the options for your memory: ")
 
         inputprompt = "Enter the type of memory you want: "
