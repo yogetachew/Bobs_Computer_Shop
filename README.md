@@ -4,7 +4,8 @@ Today was his lucky day. Bob's, who was a computer science graduate but works at
 
 ## Version History
 - (10/11/2023) V1 Initial commit
-
+- (10/15/2023) V2 Week 8 
+- (10/21/2023) V3 Week 9 List of appliances
 
 
 ## Purpose
