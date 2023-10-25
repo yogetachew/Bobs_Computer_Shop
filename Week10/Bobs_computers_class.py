@@ -131,6 +131,16 @@ class Computer:
 
 
 
+#----------------------------
+#accessories start here
+
+    def RGBLightsMenu(self) -> int:
+        rgb = input("Do you want $40 worth of RGB leds installed inside your case? Y/N:")
+        if rgb == "Y" or rgb == "y":
+            return 40
+        else:
+            return 0
+
 def Menu(dictionary:dict, inputprompt:str, errormessage:str):
     """handles majority of menu making"""
     while True:

@@ -18,8 +18,6 @@ def main():
 def menu(computer):
     CPUbrand=""
     while True:
-        
-
         runningtotal = 0
 
         runningtotal += computer.ComputerCaseMenu()
@@ -41,9 +39,14 @@ def menu(computer):
 
         runningtotal += computer.memoryoptionMenu()
 
-        print(f"Your final bill for your {CPUbrand} computer is ${runningtotal}.")
+        accessories = input("\nThat concludes all the nessesary things when building a tower, do you want to add extra accessories (y/n): ")
 
-        computer.quantity = (int(input(" How many copies of this computer are you going to buy?: ")))
+        if accessories == "y" or accessories == "Y":
+            runningtotal += computer.RGBLightsMenu()
+
+        print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
+
+        computer.quantity = (int(input("How many copies of this computer are you going to buy?: ")))
         # Get number of computers from user
         # set quantity to object
 
