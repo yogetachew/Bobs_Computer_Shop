@@ -16,14 +16,20 @@ def main():
 
 # TODO: create menu function
 def menu(computer):
+    CPUbrand=""
     while True:
-        # Get number of computers from user
-        # set quantity to object
-        computer.quantity = (int(input(" How many computers: ")))
+        
 
         runningtotal = 0
 
         runningtotal += computer.ComputerCaseMenu()
+
+        CPUbrand = computer.CPUVendor()
+
+        if CPUbrand == 0:
+            CPUbrand = "AMD"
+        else:
+            CPUbrand = "Intel"
 
         runningtotal += computer.MotherboardTypeMenu()
 
@@ -34,6 +40,12 @@ def menu(computer):
         runningtotal += computer.storageTypeMenu()
 
         runningtotal += computer.memoryoptionMenu()
+
+        print(f"Your final bill for your {CPUbrand} computer is ${runningtotal}.")
+
+        computer.quantity = (int(input(" How many copies of this computer are you going to buy?: ")))
+        # Get number of computers from user
+        # set quantity to object
 
         # Get computer quantity from object
         quantity = computer.quantity

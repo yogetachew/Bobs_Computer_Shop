@@ -14,6 +14,11 @@ class Computer:
             "Red":120
         }
 
+        self.CPUVendors = {
+            "AMD":0,
+            "Intel":1
+        }
+
         self.Motherboards = {
             "Regular":120,
             "Wifi":145
@@ -67,8 +72,20 @@ class Computer:
 
         return Menu(self.CaseColors, inputprompt, errormessage)
 
+#CPUVendor, give the user the illusion of choice when picking a cpu/motherboard, if they pick AMD they will get an AMD CPU
+    
+    def CPUVendor(self) -> str:
+        print("When choosing a motherboard it is crucial for us to know what Vendor of CPU you will be using. Here are you options of vendors we carry: ")
+
+        inputprompt = "Enter number of the Vendor you like best, if you dont know just choose the color you like best. Intel is blue, AMD is red: "
+        errormessage = "That input wasnt a CPU vendor we carry! \ntry again:"
+        
+        return Menu(self.CPUVendors, inputprompt, errormessage)
+
+
 #MotherboardType (Maby just let the choose if they want wifi or not at a $30 dollar discount if they dont to make it simpler)
     def MotherboardTypeMenu(self) -> int:
+
         print("Additionally You can pick whether or not you need your motherboard to support wifi. Here are your options to choose from: ")
 
         inputprompt = "Enter name of the motherboard that tickles your fancy: "
@@ -111,6 +128,8 @@ class Computer:
         errormessage = "That input is not a memory type we have in stock! \nTry again: "
 
         return Menu(self.memoryoptions, inputprompt, errormessage)
+
+
 
 def Menu(dictionary:dict, inputprompt:str, errormessage:str):
     """handles majority of menu making"""
