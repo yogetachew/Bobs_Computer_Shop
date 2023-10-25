@@ -58,6 +58,29 @@ class Computer:
     def quantity(self, quantity: int):
         self._quantity = quantity
 
+    memory_options = {
+    "8GB": 49.99,
+    "16GB": 99.99,
+    "32GB": 199.99,
+    "64GB": 349.99,
+    }
+
+
+    storageType = {
+        "HDD 1TB": 49.99,
+        "HDD 2TB": 79.99,
+        "SSD 256GB": 69.99,
+        "SSD 512GB": 119.99,
+        "SSD 1TB": 219.99,
+    }
+    
+
+
+    def display_storageType(choices):
+        print("List of storage types: ")
+        for choice, price in choices.items():
+            print(f"Your choice was {choice}: ${price}")
+
 #ComputerCase (Probbly jsut let the choose the color to make it simpler)
     def ComputerCaseMenu(self) -> int:
         print("When making building a computer you can choose the color of the case. Here are your options to choose from: ")
@@ -86,6 +109,7 @@ class Computer:
         return Menu(self.cpuOptions, inputprompt, errormessage)
 
 #GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
+<<<<<<< Updated upstream
     def gpuTypeMenu(self) -> int:
         print("Here are the options for your GPU: ")
 
@@ -145,3 +169,9 @@ def FormatMenu(input:dict) -> str:
 
 #
 #(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
+=======
+#MemoryAmmount
+#StorageType(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
+
+
+>>>>>>> Stashed changes
