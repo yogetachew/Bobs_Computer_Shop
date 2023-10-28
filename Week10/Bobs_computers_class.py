@@ -30,6 +30,13 @@ class Computer:
             "16-Core":500
         }
 
+        self.cpuCoolerOptoins = {
+            "Stock Cooler":0,
+            "Air Cooler": 50,
+            "AiO":150,
+            "Custom Liquid Loop":500
+        }
+
         self.gpuOptions = {
             "GTX 1650":150,
             "GTX 1080":250,
@@ -97,10 +104,19 @@ class Computer:
     def cpuTypeMenu(self) -> int:
         print("Here are the options for your CPU: ")
 
-        inputprompt = "Enter the name of the CPU you want: "
+        inputprompt = "Enter the CPU you want: "
         errormessage = "That input is not a cpu we have in stock! \nTry again: "
 
         return Menu(self.cpuOptions, inputprompt, errormessage)
+
+#CPU COOLER
+    def cpuCoolerMenu(self) -> int:
+        print("Pick which CPU cooler you want from the options below: ")
+
+        inputprompt = "Enter the CPU cooler you want: "
+        errormessage = "That input is not a cooler we have available"
+
+        return Menu(self.cpuCoolerOptions, inputprompt, errormessage)
 
 #GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
     def gpuTypeMenu(self) -> int:

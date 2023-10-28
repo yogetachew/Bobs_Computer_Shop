@@ -109,7 +109,6 @@ class Computer:
         return Menu(self.cpuOptions, inputprompt, errormessage)
 
 #GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
-<<<<<<< Updated upstream
     def gpuTypeMenu(self) -> int:
         print("Here are the options for your GPU: ")
 
@@ -169,9 +168,3 @@ def FormatMenu(input:dict) -> str:
 
 #
 #(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
-=======
-#MemoryAmmount
-#StorageType(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
-
-
->>>>>>> Stashed changes
