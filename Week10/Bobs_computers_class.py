@@ -67,9 +67,15 @@ class Computer:
     def quantity(self, quantity: int):
         self._quantity = quantity
 
+    @staticmethod
+    def title():
+        print("  _____                       _____ ")
+        print(" |_____|   Bob's Computer    |_____|")
+        print("/_____/        Shop         /_____/ ")
+
 #ComputerCase (Probbly jsut let the choose the color to make it simpler)
     def ComputerCaseMenu(self) -> int:
-        print("When making building a computer you can choose the color of the case. Here are your options to choose from: ")
+        print("\nWhen making building a computer you can choose the color of the case. Here are your options to choose from: ")
         
         inputprompt = "Enter name of the color that tickles your fancy: "
         errormessage = "That input wasnt a case color we have in stock! \ntry again:"

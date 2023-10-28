@@ -18,6 +18,9 @@ def main():
 def menu(computer):
     CPUbrand=""
     while True:
+
+        computer.title()
+
         runningtotal = 0
 
         runningtotal += computer.ComputerCaseMenu()
