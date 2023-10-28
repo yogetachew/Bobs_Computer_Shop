@@ -14,10 +14,7 @@ class Computer:
             "Red":120
         }
 
-        self.CPUVendors = {
-            "AMD":0,
-            "Intel":1
-        }
+        self.CPUVendors = ["AMD", "Intel"]
 
         self.Motherboards = {
             "Regular":120,
@@ -30,7 +27,7 @@ class Computer:
             "16-Core":500
         }
 
-        self.cpuCoolerOptoins = {
+        self.cpuCoolerOptions = {
             "Stock Cooler":0,
             "Air Cooler": 50,
             "AiO":150,
@@ -86,8 +83,16 @@ class Computer:
 
         inputprompt = "Enter number of the Vendor you like best, if you dont know just choose the color you like best. Intel is blue, AMD is red: "
         errormessage = "That input wasnt a CPU vendor we carry! \ntry again:"
+
+        for i in range(len(self.CPUVendors)):
+            print(f"[{i+1}]: {self.CPUVendors[i]}")
+
+        while True:
+            cpuBrand = int(input(inputprompt))
+
+            if cpuBrand == 1 or cpuBrand == 2:
+                return self.CPUVendors[cpuBrand-1]
         
-        return Menu(self.CPUVendors, inputprompt, errormessage)
 
 
 #MotherboardType (Maby just let the choose if they want wifi or not at a $30 dollar discount if they dont to make it simpler)

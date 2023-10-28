@@ -24,7 +24,7 @@ def menu(computer):
 
         CPUbrand = computer.CPUVendor()
 
-        if CPUbrand == 0:
+        if CPUbrand == "AMD":
             CPUbrand = "AMD"
         else:
             CPUbrand = "Intel"
@@ -32,6 +32,8 @@ def menu(computer):
         runningtotal += computer.MotherboardTypeMenu()
 
         runningtotal += computer.cpuTypeMenu()
+
+        runningtotal += computer.cpuCoolerMenu()
 
         runningtotal += computer.gpuTypeMenu()
 
