@@ -41,10 +41,11 @@ def menu(computer):
 
         runningtotal += computer.memoryoptionMenu()
 
-        accessories = input("\nThat concludes all the nessesary things when building a tower, do you want to add extra accessories (y/n): ")
+        accessories = input("\nThat concludes all the nessesary things when building a tower, do you want to add extra accessories (y/n): ").lower()
 
-        if accessories == "y" or accessories == "Y":
+        if accessories == "y":
             runningtotal += computer.RGBLightsMenu()
+            runningtotal -= computer.preinstallWindows()
 
         print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
 

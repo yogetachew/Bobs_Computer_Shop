@@ -156,11 +156,19 @@ class Computer:
 #accessories start here
 
     def RGBLightsMenu(self) -> int:
-        rgb = input("Do you want $40 worth of RGB leds installed inside your case? Y/N:")
-        if rgb == "Y" or rgb == "y":
+        rgb = input("Do you want $40 worth of RGB leds installed inside your case? Y/N: ").lower()
+        if rgb == "y":
             return 40
         else:
             return 0
+        
+    def preinstallWindows(self) -> int:
+        windows = input("Do you want your PC to come with Windows 11 Preinstalled? (-$100 if no) Y/N: ").lower()
+        if windows == "y":
+            return 0
+        else: 
+            return 100
+
 
 def Menu(dictionary:dict, inputprompt:str, errormessage:str):
     """handles majority of menu making"""
