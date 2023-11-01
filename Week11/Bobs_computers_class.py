@@ -5,6 +5,7 @@
     Purpose: Use @property Pythoic way of accessing attrabutes
 """
 import bobs_computers_app
+import bobs_computers_Menu
 
 class Computer:
     # create init
@@ -59,6 +60,7 @@ class Computer:
         }
 
         self.inputValidadator = bobs_computers_app.inputValidation()
+        self.menuPrinter = bobs_computers_Menu
     
     """Define getter with @property decorator"""
     @property
@@ -80,10 +82,18 @@ class Computer:
     def ComputerCaseMenu(self) -> int:
         print("\nWhen making building a computer you can choose the color of the case. Here are your options to choose from: ")
         
+        CaseColors = {
+            "Black":100,
+            "White":115,
+            "Red":120
+        }
+
         inputprompt = "Enter name of the color that tickles your fancy: "
         errormessage = "That input wasnt a case color we have in stock! \ntry again:"
 
-        return Menu(self.CaseColors, inputprompt, errormessage)
+        output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(CaseColors, inputprompt, errormessage)
+
+        return output
 
 #CPUVendor, give the user the illusion of choice when picking a cpu/motherboard, if they pick AMD they will get an AMD CPU
     
@@ -112,7 +122,7 @@ class Computer:
         inputprompt = "Enter name of the motherboard that tickles your fancy: "
         errormessage = "That input wasnt a Motherboard we have in stock! \ntry again:"
         
-        return Menu(self.Motherboards, inputprompt, errormessage)
+        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
     
 #CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
     def cpuTypeMenu(self) -> int:
@@ -121,7 +131,7 @@ class Computer:
         inputprompt = "Enter the CPU you want: "
         errormessage = "That input is not a cpu we have in stock! \nTry again: "
 
-        return Menu(self.cpuOptions, inputprompt, errormessage)
+        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuOptions, inputprompt, errormessage)
 
 #CPU COOLER
     def cpuCoolerMenu(self) -> int:
@@ -130,7 +140,7 @@ class Computer:
         inputprompt = "Enter the CPU cooler you want: "
         errormessage = "That input is not a cooler we have available"
 
-        return Menu(self.cpuCoolerOptions, inputprompt, errormessage)
+        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuCoolerOptions, inputprompt, errormessage)
 
 #GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
     def gpuTypeMenu(self) -> int:
@@ -139,7 +149,7 @@ class Computer:
         inputprompt = "Enter the name of the GPU you want: "
         errormessage = "That input is not a GPU we have in stock! \nTry again: "
 
-        return Menu(self.gpuOptions, inputprompt, errormessage)
+        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.gpuOptions, inputprompt, errormessage)
 
 #StorageType(the user can choose what type of storage they want)
     def storageTypeMenu(self) -> int:
@@ -148,7 +158,7 @@ class Computer:
         inputprompt = "Enter the type of storage you want: "
         errormessage = "That input is not a storagr type we have in stock! \nTry again: "
 
-        return Menu(self.storageoptions, inputprompt, errormessage)
+        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.storageoptions, inputprompt, errormessage)
 
 #memoryoption(the user can choose what type of memory they want)
     def memoryoptionMenu(self) -> int:
@@ -157,7 +167,7 @@ class Computer:
         inputprompt = "Enter the type of memory you want: "
         errormessage = "That input is not a memory type we have in stock! \nTry again: "
 
-        return Menu(self.memoryoptions, inputprompt, errormessage)
+        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.memoryoptions, inputprompt, errormessage)
 
 
 
@@ -165,46 +175,16 @@ class Computer:
 #accessories start here
 
     def RGBLightsMenu(self) -> int:
-        rgb = input("Do you want $40 worth of RGB leds installed inside your case? Y/N: ").lower()
+        rgb = self.inputValidadator.validateYorN("Do you want $40 worth of RGB leds installed inside your case? Y/N: ").lower()
         if rgb == "y":
             return 40
         else:
             return 0
         
     def preinstallWindows(self) -> int:
-        windows = input("Do you want your PC to come with Windows 11 Preinstalled? (-$100 if no) Y/N: ").lower()
+        windows = self.inputValidadator.validateYorN("Do you want your PC to come with Windows 11 Preinstalled? (-$100 if no) Y/N: ").lower()
         if windows == "y":
             return 0
         else: 
             return 100
 
-
-def Menu(dictionary:dict, inputprompt:str, errormessage:str):
-    """handles majority of menu making"""
-    while True:
-        print(FormatMenu(dictionary))
-
-        userinput = int(input(inputprompt))-1
-
-        """item = dictionary.get(userinput, errormessage)"""
-        item = list(dictionary.values())[userinput]
-        if item != errormessage:
-                return item
-        
-        print(errormessage)
-
-
-
-def FormatMenu(input:dict) -> str:
-    """
-        takes in dictionary
-        splits into index #, key and value
-        returns formatted menu
-    """
-    """makes a formatted menu when passed a dictionary"""
-    menustr = ""
-
-    for index, (key, value) in enumerate(input.items(), start=1):
-        menustr += f"[{index}]: {key}: ${value:.2f} \n"
-    return menustr
-    

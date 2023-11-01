@@ -4,7 +4,7 @@ class Bobs_Computer_Menu:
     def __init__(self) -> None:
          pass
 
-    def Menu(dictionary:dict, inputprompt:str, errormessage:str):
+    def MenuMaker(dictionary:dict, inputprompt:str, errormessage:str):
         """handles majority of menu making"""
         while True:
             print(FormatMenu(dictionary))
