@@ -6,9 +6,9 @@
 """
 class Business:
     def __init__(self, sales=0, costs=0, profit=0):
-        self.totalSales = 0
-        self.totalCosts = 0
-        self.totalProfit = 0
+        self.totalSales = sales
+        self.totalCosts = costs
+        self.totalProfit = profit
 
     #------------SALES--------------
     @property
