@@ -204,8 +204,4 @@ def FormatMenu(input:dict) -> str:
     for index, (key, value) in enumerate(input.items(), start=1):
         menustr += f"[{index}]: {key}: ${value:.2f} \n"
     return menustr
-        
-
-
-#
-#(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
+    
