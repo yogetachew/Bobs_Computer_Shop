@@ -1,6 +1,9 @@
 
 
 class Bobs_Computer_Menu:
+    def __init__(self) -> None:
+         pass
+
     def Menu(dictionary:dict, inputprompt:str, errormessage:str):
         """handles majority of menu making"""
         while True:
@@ -17,15 +20,15 @@ class Bobs_Computer_Menu:
 
 
 
-    def FormatMenu(input:dict) -> str:
-        """
-            takes in dictionary
-            splits into index #, key and value
-            returns formatted menu
-        """
-        """makes a formatted menu when passed a dictionary"""
-        menustr = ""
+def FormatMenu(input:dict) -> str:
+    """
+        takes in dictionary
+        splits into index #, key and value
+        returns formatted menu
+    """
+    """makes a formatted menu when passed a dictionary"""
+    menustr = ""
 
-        for index, (key, value) in enumerate(input.items(), start=1):
-            menustr += f"[{index}]: {key}: ${value:.2f} \n"
-        return menustr
+    for index, (key, value) in enumerate(input.items(), start=1):
+        menustr += f"[{index}]: {key}: ${value:.2f} \n"
+    return menustr
