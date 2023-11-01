@@ -175,6 +175,8 @@ class Computer:
         else: 
             return 100
 
+#
+#(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
 
 def Menu(dictionary:dict, inputprompt:str, errormessage:str):
     """handles majority of menu making"""
@@ -204,8 +206,3 @@ def FormatMenu(input:dict) -> str:
     for index, (key, value) in enumerate(input.items(), start=1):
         menustr += f"[{index}]: {key}: ${value:.2f} \n"
     return menustr
-        
-
-
-#
-#(HHD, SSD, NVME) (just do this calculation baised on cost per gigabyte)
