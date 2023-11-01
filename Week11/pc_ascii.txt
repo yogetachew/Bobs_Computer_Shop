@@ -5,3 +5,10 @@
 \ | O |
   ‾‾‾‾‾
 
+
+        print(" ____                            _____  ")
+        print("|\____\                         |\____\ ")
+        print("| | o |      Bob's Computer     | | o | ")
+        print("| | o |          Shop           | | o | ")
+        print("| | o |                         | | o | ")
+        print("\ |___|                         \ |___| ")
