@@ -6,8 +6,6 @@
 
 # TODO: import class file
 import Bobs_computers_class
-import bobs_computers_Business
-import bobs_computers_Menu
 
 class inputValidation():
     def __init__(self):
@@ -22,11 +20,12 @@ class inputValidation():
                 return userinput
             
     def validateNum(self, prompt:str):
-        while True:
-            userinput = input(prompt)
-            
-            if userinput == int:
+        while True:        
+            try:
+                userinput = int(input(prompt))
                 return userinput
+            except:
+                print("\nThat wasnt right! try again:")
             
     def validateYorN(self, prompt:str):
         while True:
@@ -34,6 +33,18 @@ class inputValidation():
 
             if userinput == "y" or userinput == "Y" or userinput == "n" or userinput == "N":
                 return userinput
+            
+    def validateNumRange(self, prompt:str, range:list):
+        """Validates a input if its a number and inside a range provided ex [0,23]"""
+        while True:
+            try:
+                userinput = int(input(prompt))
+                if userinput >= range[0] and userinput <= range[1]:
+                    return userinput
+            except:
+                print("That wasnt right! try again:")
+            
+            
 
 
 # TODO: create main

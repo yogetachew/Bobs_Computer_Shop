@@ -1,15 +1,18 @@
-
+import bobs_computers_app
 
 class Bobs_Computer_Menu:
-    def __init__(self) -> None:
-         pass
 
     def MenuMaker(dictionary:dict, inputprompt:str, errormessage:str):
         """handles majority of menu making"""
+        inputValidadator = bobs_computers_app.inputValidation()
+        
+        dictionarylen = len(dictionary)
+             
+        
         while True:
             print(FormatMenu(dictionary))
 
-            userinput = int(input(inputprompt))-1
+            userinput = int(inputValidadator.validateNumRange(inputprompt, [1,dictionarylen]))-1
 
             """item = dictionary.get(userinput, errormessage)"""
             item = list(dictionary.values())[userinput]
@@ -17,8 +20,6 @@ class Bobs_Computer_Menu:
                     return item
             
             print(errormessage)
-
-
 
 def FormatMenu(input:dict) -> str:
     """

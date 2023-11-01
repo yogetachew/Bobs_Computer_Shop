@@ -5,7 +5,7 @@
     Purpose: Use @property Pythoic way of accessing attrabutes
 """
 import bobs_computers_app
-import bobs_computers_Menu
+import bobs_computers_menu
 
 class Computer:
     # create init
@@ -60,7 +60,7 @@ class Computer:
         }
 
         self.inputValidadator = bobs_computers_app.inputValidation()
-        self.menuPrinter = bobs_computers_Menu
+        self.menuPrinter = bobs_computers_menu
     
     """Define getter with @property decorator"""
     @property
@@ -107,7 +107,7 @@ class Computer:
             print(f"[{i+1}]: {self.CPUVendors[i]}")
 
         while True:
-            cpuBrand = int(input(inputprompt))
+            cpuBrand = int(self.inputValidadator.validateNumRange(inputprompt,[1,len(self.CPUVendors)]))
 
             if cpuBrand == 1 or cpuBrand == 2:
                 return self.CPUVendors[cpuBrand-1]
