@@ -4,6 +4,7 @@
     Created: 10/11/2023
     Purpose: Use @property Pythoic way of accessing attrabutes
 """
+import bobs_computers_app
 
 class Computer:
     # create init
@@ -56,6 +57,8 @@ class Computer:
             "32GB": 200,
             "64GB": 350,
         }
+
+        self.inputValidadator = bobs_computers_app.inputValidation()
     
     """Define getter with @property decorator"""
     @property
