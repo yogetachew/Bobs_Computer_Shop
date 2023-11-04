@@ -5,7 +5,7 @@
     Purpose: Use @property Pythoic way of accessing attrabutes
 """
 import bobs_computers_app
-import bobs_computers_menu
+import bobs_computers_Menu
 
 class Computer:
     # create init
@@ -60,7 +60,7 @@ class Computer:
         }
 
         self.inputValidadator = bobs_computers_app.inputValidation()
-        self.menuPrinter = bobs_computers_menu
+        self.menuPrinter = bobs_computers_Menu
     
     """Define getter with @property decorator"""
     @property

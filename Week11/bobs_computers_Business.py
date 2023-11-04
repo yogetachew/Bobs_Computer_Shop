@@ -11,28 +11,22 @@ class Business:
         self.totalProfit = profit
 
     #------------SALES--------------
-    @property
-    def trackSales(self):
+    def returnSales(self):
         return self.totalSales
     
-    @trackSales.setter
     def trackSales(self, runningTotal):
         self.totalSales += runningTotal     
     
     #---------------COSTS----------------
-    @property
-    def trackCosts(self):
+    def returnCosts(self):
         return self.totalCosts
     
-    @trackCosts.setter
-    def trackCosts(self, products:dict):
-        self.totalCosts = (products.values() / 5)
+    def trackCosts(self):
+        self.totalCosts = (self.totalSales / 5)
     
     #--------------PROFIT--------------#
-    @property
-    def trackProfit(self):
+    def returnProfit(self):
         return(self.totalProfit)
     
-    @trackProfit.setter
     def trackProfit(self):
         self.totalProfit = self.totalSales - self.totalCosts

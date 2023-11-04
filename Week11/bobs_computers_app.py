@@ -6,6 +6,7 @@
 
 # TODO: import class file
 import Bobs_computers_class
+import bobs_computers_Business
 
 class inputValidation():
     def __init__(self):
@@ -58,6 +59,8 @@ def main():
 def menu(computer):
     CPUbrand=""
     inputValidadator = inputValidation()
+    # Create business object
+    business = bobs_computers_Business.Business()
     while True:
 
         computer.title()
@@ -101,6 +104,19 @@ def menu(computer):
         quantity = computer.quantity
         print(f" You ordered {quantity} computer(s), costing ${runningtotal} each")
         print(f" TOTAL COST: ${quantity * runningtotal}")
+
+        # track total sale in business class
+        total_sale = quantity * runningtotal
+        business.trackSales(total_sale)
+
+        # return total sales FOR TESTING
+        print(f"TOTAL SALES: ${business.returnSales()}")
+
+        # track total costs
+        business.trackCosts()
+        # track total profit
+        business.trackProfit()
+        
 
         # input to ask if user wants program to keep running
         run_again = inputValidadator.validateYorN("Do you wish to run again? [Y/N]: ").lower()
