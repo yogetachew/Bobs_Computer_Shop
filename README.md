@@ -6,6 +6,8 @@ Today was his lucky day. Bob's, who was a computer science graduate but works at
 - (10/11/2023) V1 Initial commit
 - (10/15/2023) V2 Week 8 
 - (10/21/2023) V3 Week 9 List of appliances
+- (10/28/2023) V4 Week 10 
+- (11/04/2023) V5 Week 11
 
 
 ## Purpose
