@@ -14,7 +14,6 @@ class Bobs_Computer_Menu:
             keysbad = dictionary.keys()
             keygood = []
 
-
             for key in keysbad:
                  keygood.append(key)
 
