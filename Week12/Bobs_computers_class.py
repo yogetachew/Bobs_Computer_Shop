@@ -60,7 +60,7 @@ class Computer:
         }
 
         self.inputValidadator = bobs_computers_app.inputValidation()
-        self.menuPrinter = bobs_computers_menu
+        self.menuPrinter = bobs_computers_Menu
     
     """Define getter with @property decorator"""
     @property
