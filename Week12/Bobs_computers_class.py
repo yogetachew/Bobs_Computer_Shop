@@ -152,7 +152,7 @@ class Computer:
         inputprompt = "Enter the CPU cooler you want: "
         errormessage = "That input is not a cooler we have available"
 
-        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuCoolerMenu, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuCoolerOptions, inputprompt, errormessage)
 
         self.ItemsGottenList.append(tempreceptitem)
 
