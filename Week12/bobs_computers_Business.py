@@ -30,3 +30,5 @@ class Business:
     
     def trackProfit(self):
         self.totalProfit = self.totalSales - self.totalCosts
+
+    
