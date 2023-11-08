@@ -152,7 +152,12 @@ class Computer:
         inputprompt = "Enter the CPU cooler you want: "
         errormessage = "That input is not a cooler we have available"
 
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuCoolerOptions, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuCoolerMenu, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
+
 
 #GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
     def gpuTypeMenu(self) -> int:
