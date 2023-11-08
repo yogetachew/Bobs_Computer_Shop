@@ -126,7 +126,11 @@ class Computer:
         inputprompt = "Enter name of the motherboard that tickles your fancy: "
         errormessage = "That input wasnt a Motherboard we have in stock! \ntry again:"
         
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
     
 #CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
     def cpuTypeMenu(self) -> int:
@@ -135,7 +139,7 @@ class Computer:
         inputprompt = "Enter the CPU you want: "
         errormessage = "That input is not a cpu we have in stock! \nTry again: "
 
-        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuOptions, inputprompt, errormessage)
 
         self.ItemsGottenList.append(tempreceptitem)
 
@@ -157,7 +161,11 @@ class Computer:
         inputprompt = "Enter the name of the GPU you want: "
         errormessage = "That input is not a GPU we have in stock! \nTry again: "
 
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.gpuOptions, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.gpuOptions, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
 
 #StorageType(the user can choose what type of storage they want)
     def storageTypeMenu(self) -> int:
