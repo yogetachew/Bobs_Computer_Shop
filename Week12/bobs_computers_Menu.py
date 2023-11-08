@@ -7,17 +7,23 @@ class Bobs_Computer_Menu:
         inputValidadator = bobs_computers_app.inputValidation()
         
         dictionarylen = len(dictionary)
-             
-        
+
         while True:
             print(FormatMenu(dictionary))
+
+            keysbad = dictionary.keys()
+            keygood = []
+
+
+            for key in keysbad:
+                 keygood.append(key)
 
             userinput = int(inputValidadator.validateNumRange(inputprompt, [1,dictionarylen]))-1
 
             """item = dictionary.get(userinput, errormessage)"""
             item = list(dictionary.values())[userinput]
             if item != errormessage:
-                    return item
+                    return [keygood[userinput], item], item
             
             print(errormessage)
 

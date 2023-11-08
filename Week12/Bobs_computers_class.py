@@ -61,6 +61,8 @@ class Computer:
 
         self.inputValidadator = bobs_computers_app.inputValidation()
         self.menuPrinter = bobs_computers_Menu
+
+        self.ItemsGottenList = []
     
     """Define getter with @property decorator"""
     @property
@@ -91,7 +93,9 @@ class Computer:
         inputprompt = "Enter name of the color that tickles your fancy: "
         errormessage = "That input wasnt a case color we have in stock! \ntry again:"
 
-        output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(CaseColors, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(CaseColors, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
 
         return output
 
@@ -131,7 +135,11 @@ class Computer:
         inputprompt = "Enter the CPU you want: "
         errormessage = "That input is not a cpu we have in stock! \nTry again: "
 
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuOptions, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
 
 #CPU COOLER
     def cpuCoolerMenu(self) -> int:
