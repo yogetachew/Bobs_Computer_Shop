@@ -117,11 +117,13 @@ def menu(computer):
         # track total profit
         business.trackProfit()
         
-
         # input to ask if user wants program to keep running
         run_again = inputValidadator.validateYorN("Do you wish to run again? [Y/N]: ").lower()
         if run_again != "y":
             break
+    
+    print("hellow?")
+    computer.printlist()
 
 if __name__ == "__main__":
     main()

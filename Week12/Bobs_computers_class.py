@@ -179,7 +179,11 @@ class Computer:
         inputprompt = "Enter the type of storage you want: "
         errormessage = "That input is not a storagr type we have in stock! \nTry again: "
 
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.storageoptions, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.storageoptions, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
 
 #memoryoption(the user can choose what type of memory they want)
     def memoryoptionMenu(self) -> int:
@@ -187,9 +191,14 @@ class Computer:
 
         inputprompt = "Enter the type of memory you want: "
         errormessage = "That input is not a memory type we have in stock! \nTry again: "
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.memoryoptions, inputprompt, errormessage)
 
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.memoryoptions, inputprompt, errormessage)
+        self.ItemsGottenList.append(tempreceptitem)
 
+        return output
+
+    def printlist(self):
+        print(self.ItemsGottenList)
 
 
 #----------------------------
@@ -198,6 +207,7 @@ class Computer:
     def RGBLightsMenu(self) -> int:
         rgb = self.inputValidadator.validateYorN("Do you want $40 worth of RGB leds installed inside your case? Y/N: ").lower()
         if rgb == "y":
+            self.ItemsGottenList.append(["RGB",40])
             return 40
         else:
             return 0
@@ -207,5 +217,6 @@ class Computer:
         if windows == "y":
             return 0
         else: 
+            self.ItemsGottenList.append(["no windows", -100])
             return 100
 
