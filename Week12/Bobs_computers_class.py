@@ -126,7 +126,11 @@ class Computer:
         inputprompt = "Enter name of the motherboard that tickles your fancy: "
         errormessage = "That input wasnt a Motherboard we have in stock! \ntry again:"
         
-        return self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
     
 #CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
     def cpuTypeMenu(self) -> int:
