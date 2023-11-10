@@ -19,7 +19,7 @@ class Computer:
         self.CPUVendors = ["AMD", "Intel"]
 
         self.Motherboards = {
-            "Regular":120,
+            "Non-Wifi":120,
             "Wifi":145
         }
 
@@ -102,6 +102,33 @@ class Computer:
 
         return output
 
+#MotherboardType (Maby just let the choose if they want wifi or not at a $30 dollar discount if they dont to make it simpler)
+    def MotherboardTypeMenu(self) -> int:
+
+        print("Additionally You can pick whether or not you need your motherboard to support wifi. Here are your options to choose from: ")
+
+        inputprompt = "Enter name of the motherboard that tickles your fancy: "
+        errormessage = "That input wasnt a Motherboard we have in stock! \ntry again:"
+        
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
+
+#CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
+    def cpuTypeMenu(self) -> int:
+        print("Here are the options for your CPU: ")
+
+        inputprompt = "Enter the CPU you want: "
+        errormessage = "That input is not a cpu we have in stock! \nTry again: "
+
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuOptions, inputprompt, errormessage)
+
+        self.ItemsGottenList.append(tempreceptitem)
+
+        return output
+
 #CPUVendor, give the user the illusion of choice when picking a cpu/motherboard, if they pick AMD they will get an AMD CPU
     
     def CPUVendor(self) -> str:
@@ -117,36 +144,15 @@ class Computer:
             cpuBrand = int(self.inputValidadator.validateNumRange(inputprompt,[1,len(self.CPUVendors)]))
 
             if cpuBrand == 1 or cpuBrand == 2:
+                
+                if cpuBrand == 1:
+                    self.ItemsGottenList[1][0] = f"AMD {self.ItemsGottenList[1][0]}"
+                    self.ItemsGottenList[2][0] = f"AMD {self.ItemsGottenList[2][0]}"
+                elif cpuBrand ==2:
+                    self.ItemsGottenList[1][0] = f"Intel {self.ItemsGottenList[1][0]}"
+                    self.ItemsGottenList[2][0] = f"Intel {self.ItemsGottenList[2][0]}"
+
                 return self.CPUVendors[cpuBrand-1]
-        
-
-
-#MotherboardType (Maby just let the choose if they want wifi or not at a $30 dollar discount if they dont to make it simpler)
-    def MotherboardTypeMenu(self) -> int:
-
-        print("Additionally You can pick whether or not you need your motherboard to support wifi. Here are your options to choose from: ")
-
-        inputprompt = "Enter name of the motherboard that tickles your fancy: "
-        errormessage = "That input wasnt a Motherboard we have in stock! \ntry again:"
-        
-        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.Motherboards, inputprompt, errormessage)
-
-        self.ItemsGottenList.append(tempreceptitem)
-
-        return output
-    
-#CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
-    def cpuTypeMenu(self) -> int:
-        print("Here are the options for your CPU: ")
-
-        inputprompt = "Enter the CPU you want: "
-        errormessage = "That input is not a cpu we have in stock! \nTry again: "
-
-        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.cpuOptions, inputprompt, errormessage)
-
-        self.ItemsGottenList.append(tempreceptitem)
-
-        return output
 
 #CPU COOLER
     def cpuCoolerMenu(self) -> int:

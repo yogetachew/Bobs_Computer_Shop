@@ -69,16 +69,16 @@ def menu(computer):
 
         runningtotal += computer.ComputerCaseMenu()
 
+        runningtotal += computer.MotherboardTypeMenu()
+
+        runningtotal += computer.cpuTypeMenu()
+
         CPUbrand = computer.CPUVendor()
 
         if CPUbrand == "AMD":
             CPUbrand = "AMD"
         else:
             CPUbrand = "Intel"
-
-        runningtotal += computer.MotherboardTypeMenu()
-
-        runningtotal += computer.cpuTypeMenu()
 
         runningtotal += computer.cpuCoolerMenu()
 
@@ -96,6 +96,7 @@ def menu(computer):
 
         print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
 
+        #the recipt doesnt respect this number yet :)
         computer.quantity = (int(inputValidadator.validateNum("How many copies of this computer are you going to buy?: ")))
         # Get number of computers from user
         # set quantity to object
@@ -121,8 +122,7 @@ def menu(computer):
         run_again = inputValidadator.validateYorN("Do you wish to run again? [Y/N]: ").lower()
         if run_again != "y":
             break
-    
-    print("hellow?")
+
     computer.printlist()
 
 if __name__ == "__main__":
