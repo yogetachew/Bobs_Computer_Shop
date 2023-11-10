@@ -76,9 +76,12 @@ class Computer:
 
     @staticmethod
     def title():
-        print("  _____                       _____ ")
-        print(" |_____|   Bob's Computer    |_____|")
-        print("/_____/        Shop         /_____/ ")
+        print(" _____                          _____  ")
+        print("|\____\    ________________    |\____\ ")
+        print("| | o |   | Bob's Computer |   | | o | ")
+        print("| | o |   |      Shop      |   | | o | ")
+        print("| | o |   |________________|   | | o | ")
+        print("\ |___|           /|\          \ |___| ")
 
 #ComputerCase (Probbly jsut let the choose the color to make it simpler)
     def ComputerCaseMenu(self) -> int:

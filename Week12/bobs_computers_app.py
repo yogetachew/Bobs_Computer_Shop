@@ -102,7 +102,7 @@ def menu(computer):
 
         # Get computer quantity from object
         quantity = computer.quantity
-        print(f" You ordered {quantity} computer(s), costing ${runningtotal} each")
+        print(f"\n You ordered {quantity} computer(s), costing ${runningtotal} each")
         print(f" TOTAL COST: ${quantity * runningtotal}")
 
         # track total sale in business class
@@ -110,7 +110,7 @@ def menu(computer):
         business.trackSales(total_sale)
 
         # return total sales FOR TESTING
-        print(f"TOTAL SALES: ${business.returnSales()}")
+        print(f" TOTAL SALES: ${business.returnSales()}")
 
         # track total costs
         business.trackCosts()
