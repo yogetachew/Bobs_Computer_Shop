@@ -93,6 +93,8 @@ def menu(computer):
         if accessories == "y":
             runningtotal += computer.RGBLightsMenu()
             runningtotal -= computer.preinstallWindows()
+            print(f"current total: ${runningtotal}")
+            runningtotal += computer.warenty(runningtotal)
 
         print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
 

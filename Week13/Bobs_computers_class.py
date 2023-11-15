@@ -228,4 +228,12 @@ class Computer:
         else: 
             self.ItemsGottenList.append(["no windows", -100])
             return 100
+        
+    def warenty(self, currenttotal) -> int:
+        windows = self.inputValidadator.validateYorN(f"Do you want to purchase waranty for your computer?\nIt is 10% of the total cost of the system  Y/N: ").lower()
+        if windows == "n":
+            return 0
+        else: 
+            self.ItemsGottenList.append(["Waranty", .10*currenttotal])
+            return .10*currenttotal
 
