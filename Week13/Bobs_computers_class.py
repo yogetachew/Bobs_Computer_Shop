@@ -99,7 +99,8 @@ class Computer:
 
         tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(CaseColors, inputprompt, errormessage)
 
-        tempreceptitem = bobs_disasters_class.ShipIncorrectColor(self, CaseColors, tempreceptitem[0])
+        #disaster
+        tempreceptitem, output = bobs_disasters_class.Disasters.ShipIncorrectColor(self, CaseColors, tempreceptitem)
 
         self.ItemsGottenList.append(tempreceptitem)
 
