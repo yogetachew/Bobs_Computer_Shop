@@ -6,6 +6,7 @@
 """
 import bobs_computers_app
 import bobs_computers_Menu
+import bobs_disasters_class
 
 class Computer:
     # create init
@@ -97,6 +98,8 @@ class Computer:
         errormessage = "That input wasnt a case color we have in stock! \ntry again:"
 
         tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(CaseColors, inputprompt, errormessage)
+
+        tempreceptitem = bobs_disasters_class.ShipIncorrectColor(self, CaseColors, tempreceptitem[0])
 
         self.ItemsGottenList.append(tempreceptitem)
 
