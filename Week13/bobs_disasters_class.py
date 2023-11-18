@@ -35,7 +35,13 @@ class Disasters:
                 river = random.randint(1,10)
                 if river <= 3:
                     return("Uh Oh!, the UPS Driver drove into a river and destroyed your PC")
+                else:
+                    return("Your package was properly shipped")
             elif premium_shipping == "y":
                 river = random.randint(1,10)
                 if river == 1:
                     return("Uh Oh!, the UPS Driver drove into a river and destroyed your PC")
+                else:
+                    return("Your package was properly shipped")
+        else:
+            return("Your package was properly shipped")

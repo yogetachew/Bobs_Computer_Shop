@@ -233,11 +233,18 @@ class Computer:
             self.ItemsGottenList.append(["no windows", -100])
             return 100
         
-    def warenty(self, currenttotal) -> int:
-        windows = self.inputValidadator.validateYorN(f"Do you want to purchase waranty for your computer?\nIt is 10% of the total cost of the system  Y/N: ").lower()
-        if windows == "n":
+    def warranty(self, currenttotal) -> int:
+        warranty = self.inputValidadator.validateYorN(f"Do you want to purchase warranty for your computer?\nIt is 10% of the total cost of the system  Y/N: ").lower()
+        if warranty == "n":
             return 0
         else: 
-            self.ItemsGottenList.append(["Waranty", .10*currenttotal])
+            self.ItemsGottenList.append(["Warranty", .10*currenttotal])
             return .10*currenttotal
 
+    def shipping(self) -> int:
+        premium_shipping = self.inputValidadator.validateYorN(f"Do you wish to purchase the premium shipping plan?\nIt is $10 per each pc ordered [Y/N]: ").lower()
+        if premium_shipping == "n":
+            return 0
+        else:
+            self.ItemsGottenList.append(["Premium Shipping", 10 * self.quantity])
+            return 10*self.quantity

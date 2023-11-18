@@ -7,6 +7,7 @@
 # TODO: import class file
 import Bobs_computers_class
 import bobs_computers_Business
+import bobs_disasters_class
 
 
 class inputValidation():
@@ -62,6 +63,8 @@ def menu(computer):
     inputValidadator = inputValidation()
     # Create business object
     business = bobs_computers_Business.Business()
+    # create disaster object
+    disasters = bobs_disasters_class.Disasters()
     while True:
 
         computer.title()
@@ -95,7 +98,13 @@ def menu(computer):
             runningtotal += computer.RGBLightsMenu()
             runningtotal -= computer.preinstallWindows()
             print(f"current total: ${runningtotal}")
-            runningtotal += computer.warenty(runningtotal)
+            warranty_cost = computer.warranty(runningtotal)
+            if warranty_cost > 0:
+                warranty = "y"
+                runningtotal += warranty_cost
+            else:
+                warranty = "n"
+
 
         print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
 
@@ -104,10 +113,23 @@ def menu(computer):
         # Get number of computers from user
         # set quantity to object
 
+        # determine if user wants premium shipping or not
+        shipping = computer.shipping()
+        if shipping > 0:
+            premium_shipping = "y"
+        else: 
+            premium_shipping = "n"
+
         # Get computer quantity from object
         quantity = computer.quantity
-        print(f"\n You ordered {quantity} computer(s), costing ${runningtotal} each")
-        print(f" TOTAL COST: ${quantity * runningtotal}")
+
+        print(f"\n You ordered {quantity} computer(s), costing ${runningtotal} each. plus shipping of ${shipping}")
+        print(f" TOTAL COST: ${quantity * runningtotal + shipping}")
+
+        # shipping disaster
+        print(disasters.failedDelivery(premium_shipping, warranty))
+
+
 
         # track total sale in business class
         total_sale = quantity * runningtotal
