@@ -47,11 +47,15 @@ class Disasters:
             return("Your package was properly shipped")
         
     def WrongStorageOption(self, premium_shipping, warranty):
+        # If the user buys a warranty then the user will be safe from the disaster
         if warranty == "n":
             
+            # The user will still be safe if they choose premium shipping
             if premium_shipping == "n":
                 intern_mistake = random.randint(1,10)
 
+                # If no warrenty or premiun shipment was choosen the user will have
+                # 50% of getting the wrong storage order
                 if intern_mistake <= 5:
                     return("\nOops, sorry the new intern messed up your storage order choice.\n")
                 else:
