@@ -45,3 +45,20 @@ class Disasters:
                     return("Your package was properly shipped")
         else:
             return("Your package was properly shipped")
+        
+    def WrongStorageOption(self, premium_shipping, warranty):
+        if warranty == "n":
+            
+            if premium_shipping == "n":
+                intern_mistake = random.randint(1,10)
+
+                if intern_mistake <= 5:
+                    return("\nOops, sorry the new intern messed up your storage order choice.\n")
+                else:
+                    return("")
+                
+            elif premium_shipping == "y":
+                    return("")
+            
+        else:
+            return("")

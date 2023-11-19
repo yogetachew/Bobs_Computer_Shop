@@ -126,9 +126,13 @@ def menu(computer):
         print(f"\n You ordered {quantity} computer(s), costing ${runningtotal} each. plus shipping of ${shipping}")
         print(f" TOTAL COST: ${quantity * runningtotal + shipping}")
 
+
+        # wrong order disaster
+        print(disasters.WrongStorageOption(premium_shipping, warranty))
+
+
         # shipping disaster
         print(disasters.failedDelivery(premium_shipping, warranty))
-
 
 
         # track total sale in business class
