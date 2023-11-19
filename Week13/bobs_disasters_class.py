@@ -22,9 +22,9 @@ class Disasters:
 
 
             if colorchoosen[0] != newcasecolor:
-                print("\n#----------------------------------------------------------------------------#")
+                print("\n#--------------------------------------------------------------------------------------------#")
                 print(f"DISASTER HAS STRUCK:\n You chose {colorchoosen[0]} but somehow you ended up with {newcasecolor}")
-                print("#----------------------------------------------------------------------------#\n")
+                print("#----------------------------------------------------------------------------------------------#\n")
                 return [newcasecolor, newcaseprice], newcaseprice
             
         return colorchoosen, colorchoosen[1]
