@@ -9,7 +9,7 @@ import bobs_computers_Menu
 import bobs_disasters_class
 
 class Computer:
-    # create init
+    # the Computer init makes a bunch of dictionaries that hold the information used to sell parts.
     def __init__(self):
         self.CaseColors = {
             "Black":100,
@@ -60,9 +60,11 @@ class Computer:
             "64GB": 350,
         }
 
+        #makes global object variables or accessing different modules
         self.inputValidadator = bobs_computers_app.inputValidation()
         self.menuPrinter = bobs_computers_Menu
 
+        #Initialize a Items gotten list which will be used to store the parts for the computer
         self.ItemsGottenList = []
     
     """Define getter with @property decorator"""
@@ -75,6 +77,7 @@ class Computer:
     def quantity(self, quantity: int):
         self._quantity = quantity
 
+    #this mmethod literally just prints the title
     @staticmethod
     def title():
         print(" _____                          _____  ")
@@ -86,21 +89,25 @@ class Computer:
 
 #ComputerCase (Probbly jsut let the choose the color to make it simpler)
     def ComputerCaseMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
         print("\nWhen making building a computer you can choose the color of the case. Here are your options to choose from: ")
-        
-        CaseColors = {
-            "Black":100,
-            "White":115,
-            "Red":120
-        }
 
         inputprompt = "Enter name of the color that tickles your fancy: "
         errormessage = "That input wasnt a case color we have in stock! \ntry again:"
 
-        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(CaseColors, inputprompt, errormessage)
+        tempreceptitem, output = self.menuPrinter.Bobs_Computer_Menu.MenuMaker(self.CaseColors, inputprompt, errormessage)
 
         #disaster
-        tempreceptitem, output = bobs_disasters_class.Disasters.ShipIncorrectColor(self, CaseColors, tempreceptitem)
+        tempreceptitem, output = bobs_disasters_class.Disasters.ShipIncorrectColor(self, self.CaseColors, tempreceptitem)
 
         self.ItemsGottenList.append(tempreceptitem)
 
@@ -108,6 +115,16 @@ class Computer:
 
 #MotherboardType (Maby just let the choose if they want wifi or not at a $30 dollar discount if they dont to make it simpler)
     def MotherboardTypeMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
 
         print("Additionally You can pick whether or not you need your motherboard to support wifi. Here are your options to choose from: ")
 
@@ -122,6 +139,17 @@ class Computer:
 
 #CPU(could do a specific SKU or just simplify and calculate cost baised on per core basis)
     def cpuTypeMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
+
         print("Here are the options for your CPU: ")
 
         inputprompt = "Enter the CPU you want: "
@@ -136,6 +164,10 @@ class Computer:
 #CPUVendor, give the user the illusion of choice when picking a cpu/motherboard, if they pick AMD they will get an AMD CPU
     
     def CPUVendor(self) -> str:
+        """This function is just a very complicated way to ask if the user prefers one CPU vendor over the other.
+        It only returns "AMD" or "Intel" Because those are the only brands we sell
+        """
+
         print("When choosing a motherboard it is crucial for us to know what Vendor of CPU you will be using. Here are you options of vendors we carry: ")
 
         inputprompt = "Enter number of the Vendor you like best, if you dont know just choose the color you like best. Intel is blue, AMD is red: "
@@ -160,6 +192,17 @@ class Computer:
 
 #CPU COOLER
     def cpuCoolerMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
+
         print("Pick which CPU cooler you want from the options below: ")
 
         inputprompt = "Enter the CPU cooler you want: "
@@ -174,6 +217,17 @@ class Computer:
 
 #GPU(Could do a specific SKU or just simplify and calculate cost baised on ram they want/need)
     def gpuTypeMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
+
         print("Here are the options for your GPU: ")
 
         inputprompt = "Enter the name of the GPU you want: "
@@ -187,6 +241,17 @@ class Computer:
 
 #StorageType(the user can choose what type of storage they want)
     def storageTypeMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
+
         print("Here are the options for your storage: ")
 
         inputprompt = "Enter the type of storage you want: "
@@ -200,6 +265,17 @@ class Computer:
 
 #memoryoption(the user can choose what type of memory they want)
     def memoryoptionMenu(self) -> int:
+        """Each of the menu functions are set up the same, there is some variance for disasters but they always go like this:
+            Print prompt,
+            make a variable that stores the prompt the menu item is asking for such as: "Enter name of the color that tickles your fancy: "
+            make a variable that stores the prompt for an incorrect choice
+            make a self.(something) var in the init class to define the choices the user has to pick from.
+            Use the menuMaker method to format and print the menu, it also handles error exceptions and askes again.
+            Use the Disaster class to account for disasters if any can happen
+            append the item user chose from the menu maker to the Items gotten list
+            return the price of the item user choose.
+        """
+
         print("Here are the options for your memory: ")
 
         inputprompt = "Enter the type of memory you want: "
@@ -217,6 +293,9 @@ class Computer:
 #----------------------------
 #accessories start here
 
+    """For each of the accessory functions all that is needed is to ask a yes or no question and add the result to the items gotten list, 
+    these are all the same in from and return just the price of the choice the user choose
+    """
     def RGBLightsMenu(self) -> int:
         rgb = self.inputValidadator.validateYorN("Do you want $40 worth of RGB leds installed inside your case? Y/N: ").lower()
         if rgb == "y":
