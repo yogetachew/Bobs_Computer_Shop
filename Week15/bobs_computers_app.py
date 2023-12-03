@@ -112,6 +112,8 @@ def menu(computer):
                 runningtotal += warranty_cost
             else:
                 warranty = "n"
+        else:
+            warranty = "n"
 
          # print final bill
         print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
