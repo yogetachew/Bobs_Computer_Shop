@@ -9,7 +9,7 @@ import Bobs_computers_class
 import bobs_computers_Business
 import bobs_disasters_class
 
-
+# Class for input validation
 class inputValidation():
     def __init__(self):
         pass
@@ -23,6 +23,7 @@ class inputValidation():
                 return userinput
             
     def validateNum(self, prompt:str):
+        # Validate user input as a number
         while True:        
             try:
                 userinput = int(input(prompt))
@@ -31,6 +32,7 @@ class inputValidation():
                 print("\nThat wasnt right! try again:")
             
     def validateYorN(self, prompt:str):
+        # Validate user input as 'y' or 'n'
         while True:
             userinput = input(prompt)
 
@@ -65,12 +67,17 @@ def menu(computer):
     business = bobs_computers_Business.Business()
     # create disaster object
     disasters = bobs_disasters_class.Disasters()
+
+
     while True:
 
+        # Display title
         computer.title()
 
+        # Initialize running total
         runningtotal = 0
 
+        # Menu for computer components
         runningtotal += computer.ComputerCaseMenu()
 
         runningtotal += computer.MotherboardTypeMenu()
@@ -92,8 +99,9 @@ def menu(computer):
 
         runningtotal += computer.memoryoptionMenu()
 
+        # Prompt for extra accessories
         accessories = inputValidadator.validateYorN("\nThat concludes all the nessesary things when building a tower, do you want to add extra accessories (y/n): ").lower()
-
+        # TODO: shipping and warrenty
         if accessories == "y":
             runningtotal += computer.RGBLightsMenu()
             runningtotal -= computer.preinstallWindows()
@@ -105,7 +113,7 @@ def menu(computer):
             else:
                 warranty = "n"
 
-
+         # print final bill
         print(f"\nYour final bill for your {CPUbrand} computer is ${runningtotal}.")
 
         #the recipt doesnt respect this number yet :)
