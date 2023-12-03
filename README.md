@@ -10,6 +10,7 @@ Today was his lucky day. Bob's, who was a computer science graduate but works at
 - (11/04/2023) V5 Week 11
 - (11/07/2023) V6 Week 12 
 - (11/15/2023) V7 Week 13 Random Disasters
+- (12/03/2023) V8 Week 15
 
 
 ## Purpose
